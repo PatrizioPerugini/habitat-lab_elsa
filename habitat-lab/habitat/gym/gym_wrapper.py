@@ -101,7 +101,7 @@ def _recursive_continuous_size_getter(
 
 def create_action_space(original_space: gym.Space) -> gym.Space:
     """
-    Converts a habitat task action space into a either continuous (Box) or discrete (Discrete) gym.space.
+    Converts a habitat task action space into a either continuous (Box) or discre'te '(Discrete) gym.space.
     """
     assert isinstance(
         original_space, Mapping
@@ -160,6 +160,9 @@ def continuous_vector_action_to_hab_dict(
 
     return action_dict
 
+pygame.init()
+
+#SONO IO ##########
 
 class HabGymWrapper(gym.Wrapper):
     """
@@ -193,7 +196,6 @@ class HabGymWrapper(gym.Wrapper):
         save_orig_obs: bool = False,
     ):
         super().__init__(env)
-
         habitat_gym_config = env.config.gym
         self._gym_goal_keys = habitat_gym_config.desired_goal_keys
         self._gym_achieved_goal_keys = habitat_gym_config.achieved_goal_keys
@@ -336,7 +338,7 @@ class HabGymWrapper(gym.Wrapper):
                 )
             frame = observations_to_image(self._last_obs, last_infos)
             if self._screen is None:
-                pygame.init()
+#                pygame.init()
                 self._screen = pygame.display.set_mode(
                     [frame.shape[1], frame.shape[0]]
                 )

@@ -155,6 +155,7 @@ class Measurements:
             :ref:`Measure` must be unique.
         """
         self.measures = OrderedDict()
+        
         for measure in measures:
             assert (
                 measure.uuid not in self.measures
@@ -176,6 +177,9 @@ class Measurements:
         r"""Collects measurement from all :ref:`Measure`\ s and returns it
         packaged inside :ref:`Metrics`.
         """
+        #print("le mie metriche son: ", Metrics(self.measures))
+        #
+        #input("embodied_task.py -> get_metrics")
         return Metrics(self.measures)
 
     def _get_measure_index(self, measure_name):
